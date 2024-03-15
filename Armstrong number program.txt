@@ -1,0 +1,56 @@
+	Develop a C# program to print Armstrong Number between 1 to 1000.
+
+
+
+using System;
+
+class ArmstrongNumbers
+{
+    static void Main()
+    {
+        Console.WriteLine("Armstrong Numbers between 1 and 1000:");
+
+        for (int number = 1; number <= 1000; number++)
+        {
+            if (IsArmstrongNumber(number))
+            {
+                Console.WriteLine(number);
+            }
+        }
+    }
+
+    // Function to check if a number is an Armstrong number
+    static bool IsArmstrongNumber(int num)
+    {
+        int originalNum = num;
+        int numDigits = CountDigits(num);
+        int sum = 0;
+
+        while (num > 0)
+        {
+            int digit = num % 10;
+            sum += (int)Math.Pow(digit, numDigits);// Method Returns a specified number raised to the specified power.
+            num /= 10;
+        }
+
+        return sum == originalNum;// It means that it is expecting parameters to be replaced in string. 
+    }
+
+    // Function to count the number of digits in a number
+    static int CountDigits(int num)
+    {
+        int count = 0;
+        while (num > 0)
+        {
+            count++;
+            num /= 10;
+        }
+        return count;
+    }
+}
+
+
+Output:
+Armstrong Numbers between 1 and 1000:
+1 2 3 4 5 6 7 8 9   153    370    371    407
+
